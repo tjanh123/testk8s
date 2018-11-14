@@ -1,4 +1,4 @@
-# testk8s
+# test k8s eureka
 <p>This repo is to test of using eureka in kubernetes.
 <p>In fact, event Kubernetes supports Load Balancer and Service Discovery but i wan't to test if Eureka works properly. 
 <p>I think there are others having same ideal.
