@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: ReplicaSet
+metadata:
+  name: k8s-test-service-discovery
+  labels:
+    app: k8s-test-service-discovery
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: k8s-test-service-discovery
+  template:
+    metadata:
+      labels:
+        app: k8s-test-service-discovery
+    spec:
+      containers:
+        - image:  tiduy1593/k8s-test-service-discovery
+          name:  k8s-test-service-discovery
+          
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name:  k8s-service-discovery-service
+spec:
+  selector:
+    app:  k8s-test-service-discovery
+  type:  ClusterIP
+  ports:
+  - port:  8761
+    targetPort:  8761
+      
+
+    
