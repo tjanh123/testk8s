@@ -15,7 +15,7 @@ spec:
         app: k8s-test-service-discovery
     spec:
       containers:
-        - image:  tiduy1593/k8s-test-service-discovery
+        - image:  tiduy1593/k8s-test-service-discovery:0.1
           name:  k8s-test-service-discovery
           
 ---

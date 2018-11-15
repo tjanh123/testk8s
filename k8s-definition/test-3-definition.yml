@@ -15,7 +15,7 @@ spec:
         app: k8s-test-3
     spec:
       containers:
-        - image:  tiduy1593/k8s-test-3
+        - image:  tiduy1593/k8s-test-3:0.1
           name:  k8s-test-3
           env:
             - name:  eureka.client.serviceUrl.defaultZone
