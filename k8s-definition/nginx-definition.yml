@@ -3,11 +3,11 @@ kind: ConfigMap
 metadata:
   name: configmap-nginx
 data:
-  nginx-config: /tmp/cfg/nginx.conf
+  nginx-config: /tmp/cfg/default.conf
 
 ---
-apiVersion: v1
-kind: ReplicaSet
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: k8s-test-nginx
   labels:
@@ -27,13 +27,13 @@ spec:
           name:  nginx
           volumeMounts:
             - name:  nginx-config
-              mountPath:  /etc/nginx/nginx.conf
+              mountPath:  /etc/nginx/conf.d/default.conf
               subPath: nginx-config
 
-volumes:
-  - name:  nginx-config
-    configMap:
-      name: configmap-nginx
+      volumes:
+        - name:  nginx-config
+          configMap:
+            name: configmap-nginx
 
 ---
 kind: Service
@@ -42,7 +42,7 @@ metadata:
   name:  k8s-test-nginx-serice
 spec:
   selector:
-    app:  Selector Label
+    app: k8s-test-nginx
   type:  LoadBalancer
   ports:
   - port:  80
