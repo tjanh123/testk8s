@@ -1,4 +1,4 @@
-# test k8s eureka
+# test Kubernetes And Spring Netflix Eureka 
 <p>This repo is to test of using eureka in kubernetes.
 <p>In fact, event Kubernetes supports Load Balancer and Service Discovery but i wan't to test if Eureka works properly. 
 <p>Of course, it doesn't work :) 
